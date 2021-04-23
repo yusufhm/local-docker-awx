@@ -9,7 +9,7 @@ services:
       - memcached
       - postgres
     ports:
-      - "80:8052"
+      - "8011:8052"
     hostname: awxweb
     user: root
     restart: unless-stopped
@@ -18,9 +18,9 @@ services:
       - "/home/yusuf/sites/awx/environment.sh:/etc/tower/conf.d/environment.sh"
       - "/home/yusuf/sites/awx/credentials.py:/etc/tower/conf.d/credentials.py"
     environment:
-      http_proxy: 
-      https_proxy: 
-      no_proxy: 
+      http_proxy:
+      https_proxy:
+      no_proxy:
 
   task:
     image: ansible/awx_task:7.0.0
@@ -38,9 +38,9 @@ services:
       - "/home/yusuf/sites/awx/environment.sh:/etc/tower/conf.d/environment.sh"
       - "/home/yusuf/sites/awx/credentials.py:/etc/tower/conf.d/credentials.py"
     environment:
-      http_proxy: 
-      https_proxy: 
-      no_proxy: 
+      http_proxy:
+      https_proxy:
+      no_proxy:
 
   rabbitmq:
     image: ansible/awx_rabbitmq:3.7.4
@@ -51,18 +51,18 @@ services:
       RABBITMQ_DEFAULT_USER: "guest"
       RABBITMQ_DEFAULT_PASS: "awxpass"
       RABBITMQ_ERLANG_COOKIE: cookiemonster
-      http_proxy: 
-      https_proxy: 
-      no_proxy: 
+      http_proxy:
+      https_proxy:
+      no_proxy:
 
   memcached:
     image: "memcached:alpine"
     container_name: awx_memcached
     restart: unless-stopped
     environment:
-      http_proxy: 
-      https_proxy: 
-      no_proxy: 
+      http_proxy:
+      https_proxy:
+      no_proxy:
 
   postgres:
     image: postgres:9.6
@@ -75,6 +75,6 @@ services:
       POSTGRES_PASSWORD: awxpass
       POSTGRES_DB: awx
       PGDATA: /var/lib/postgresql/data/pgdata
-      http_proxy: 
-      https_proxy: 
-      no_proxy: 
+      http_proxy:
+      https_proxy:
+      no_proxy:

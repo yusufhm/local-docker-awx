@@ -13,7 +13,7 @@ These files were created using the instructions [here](https://github.com/ansibl
 docker-compose up -d
 ```
 
-After some time, AWX will be available at http://localhost/. Run `docker-compose logs -f task` to see what's happening in the background.
+After some time, AWX will be available at http://localhost:8011/. Run `docker-compose logs -f task` to see what's happening in the background.
 
 
 ## Remove
